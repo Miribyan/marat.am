@@ -92,7 +92,7 @@ export default function Main_component() {
                     onClose={setMobileMenuOpen}
                 >
                     <div className="fixed inset-0" />
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-2/3 overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-end">
                             <button
                                 type="button"
@@ -130,7 +130,7 @@ export default function Main_component() {
             >
                 <div className="flex flex-col md:flex-row w-full items-center mt-10 bg-gray-50 shadow-md rounded-xl p-3 mx-2 ">
                     <div className="w-full flex flex-col justify-center items-center z-20">
-                        <h3 className="animate-pulse text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-10 leading-8  text-gray-900">
+                        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-10 leading-8  text-gray-900">
                             {"<Hello!/>"}
                         </h3>
                         <div className=" animate-pulse md:mb-0">
