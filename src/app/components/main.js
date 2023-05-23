@@ -38,10 +38,6 @@ const footerNavigation = [
     },
 ];
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-}
-
 export default function Main_component() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -61,7 +57,7 @@ export default function Main_component() {
                             src="https://res.cloudinary.com/dpd2rrpsn/image/upload/v1684242035/dqiiggbs6gbhvsuldmmt.png"
                             alt=""
                         />
-                        <span className=" bg-gray-600 rounded-md px-2">
+                        <span className=" bg-gray-600 rounded-md px-1 text-xs sm:text-sm md:text-base text-white">
                             {"< Marat_Miribyan/>"}
                         </span>
                     </a>
@@ -71,14 +67,14 @@ export default function Main_component() {
                                 <a
                                     key={item.name}
                                     href={item.href}
-                                    className="text-sm font-semibold leading-6 text-gray-900"
+                                    className="text-sm hover:animate-bounce font-semibold leading-6 text-gray-900"
                                 >
                                     {item.name}
                                 </a>
                             ))}
                         </div>
                     </div>
-                    <div className="flex lg:hidden">
+                    <div className="flex mr-4 lg:hidden">
                         <button
                             type="button"
                             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -95,12 +91,12 @@ export default function Main_component() {
                     open={mobileMenuOpen}
                     onClose={setMobileMenuOpen}
                 >
-                    <div className="fixed inset-0 z-10" />
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        <div className="flex items-center justify-between">
+                    <div className="fixed inset-0" />
+                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                        <div className="flex items-center justify-end">
                             <button
                                 type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                                className="-m-2.5 rounded-md p-2.5 text-gray-700 "
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 <span className="sr-only">Close menu</span>
@@ -117,7 +113,7 @@ export default function Main_component() {
                                         <a
                                             key={item.name}
                                             href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:animate-pulse"
                                         >
                                             {item.name}
                                         </a>
@@ -128,32 +124,35 @@ export default function Main_component() {
                     </Dialog.Panel>
                 </Dialog>
             </header>
-            <main id="main" className="flex w-full justify-center pt-16">
-                <div className="flex  w-full items-center mt-10 bg-gray-50 shadow-md rounded-xl p-3 mx-10 ">
-                    <img
-                        className="w-1/3  rounded-xl -mt-8 shadow-lg  "
-                        src="https://res.cloudinary.com/dpd2rrpsn/image/upload/v1684250062/83152458-DC77-486B-9999-FF7998D9C3FA_kutwub-Square_mpfl6b.jpg"
-                        alt=""
-                    />
-                    <div className="w-2/3 flex flex-col justify-center items-center ">
-                        <h3 className="text-7xl font-semibold mb-10 leading-8  text-gray-900">
+            <main
+                id="main"
+                className="flex w-full overflow-x-hidden justify-center pt-16"
+            >
+                <div className="flex flex-col md:flex-row w-full items-center mt-10 bg-gray-50 shadow-md rounded-xl p-3 mx-2 ">
+                    <div className="w-full flex flex-col justify-center items-center z-20">
+                        <h3 className="animate-pulse text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-10 leading-8  text-gray-900">
                             {"<Hello!/>"}
                         </h3>
-                        <div>
-                            <p className=" text-3xl leading-7 self-start -ml-5 text-yellow-100  bg-gray-800 px-2 py-1 shadow-md">
+                        <div className=" animate-pulse md:mb-0">
+                            <p className=" text-xl sm:text-2xl leading-7 self-start -ml-5 text-yellow-100  bg-gray-800 px-2 py-1 shadow-md">
                                 {"{"}
                             </p>
-                            <p className="mt-3 text-4xl leading-7 text-yellow-200  bg-gray-800 px-2 py-1 shadow-md">
-                                {"name: 'Marat Miribyan'"}
+                            <p className="mt-3 text-2xl sm:text-4xl leading-7 text-yellow-200  bg-gray-800 px-2 py-1 shadow-md">
+                                {"name: 'Marat Miribyan',"}
                             </p>
-                            <p className="mt-3 text-4xl leading-7 text-yellow-200  bg-gray-800 px-2 py-1 shadow-md">
-                                {"role: 'fullstack developer'"}
+                            <p className="mt-3 text-2xl sm:text-4xl leading-7 text-yellow-200  bg-gray-800 px-2 py-1 shadow-md">
+                                {"role: 'fullstack developer',"}
                             </p>
-                            <p className="mt-3 text-3xl -mr-5 text-end leading-7 text-yellow-100  bg-gray-800 px-2 py-1 shadow-md">
+                            <p className="mt-3 text-xl sm:text-2xl -mr-5 text-end leading-7 text-yellow-100  bg-gray-800 px-2 py-1 shadow-md">
                                 {"}"}
                             </p>
                         </div>
-                    </div>
+                    </div>{" "}
+                    <img
+                        className="md:w-1/3  rounded-full -mt-8 sm:-mt-16 md:-mt-24 lg:-mt-0 lg:-mb-8 shadow-lg   "
+                        src="https://res.cloudinary.com/dpd2rrpsn/image/upload/v1684250062/83152458-DC77-486B-9999-FF7998D9C3FA_kutwub-Square_mpfl6b.jpg"
+                        alt=""
+                    />
                 </div>
             </main>
             <div className="bg-white py-32">
@@ -170,7 +169,7 @@ export default function Main_component() {
                             <img
                                 src="https://res.cloudinary.com/dpd2rrpsn/image/upload/v1684258664/IMG_9449_i6u54e_z9nltp.png"
                                 alt=""
-                                className="mt-16 aspect-[6/5] w-full rounded-2xl bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem] shadow-md"
+                                className="mt-16 aspect-[6/5] w-full rounded-full bg-gray-50 object-cover lg:aspect-auto lg:h-[34.5rem] shadow-md"
                             />
                         </div>
                         <div className="w-full lg:max-w-xl ">
@@ -191,47 +190,53 @@ export default function Main_component() {
                                                 </b>
                                             </p>
                                             <p className="text-sm bg-gray-50 rounded-md p-2">
-                                                For the past two years, I have
-                                                been at the forefront of the
-                                                fight against the pandemic,
-                                                providing assistance to patients
-                                                suffering from COVID-19. It has
-                                                been a challenging and demanding
-                                                time that has helped me develop
-                                                strong communication skills,
-                                                resilience to stress, and the
-                                                ability to make quick decisions
-                                                in complex situations.
+                                                Over the course of two years
+                                                since the beginning of the
+                                                pandemic, I have been on the
+                                                front lines of the battle
+                                                against COVID-19 alongside my
+                                                colleagues. I have countless
+                                                grateful patients to my name. It
+                                                has been a challenging and
+                                                demanding time that has helped
+                                                me develop strong communication
+                                                skills, resilience to stress,
+                                                and the ability to make quick
+                                                decisions in difficult
+                                                situations.
                                             </p>
-                                            <h3 className="font-semibold">My Skills</h3>
+                                            <h3 className="font-semibold">
+                                                My Skills
+                                            </h3>
                                             <p className="mb-2 text-sm bg-gray-50 rounded-md p-2">
                                                 <b>However</b>, in addition to
                                                 my medical career, I am also
                                                 interested in software
                                                 development. I have undergone
                                                 training as a Fullstack
-                                                Developer, specializing in <i>JavaScript</i>
-                                                , and I have mastered
-                                                tools such as <i>Node.js</i>, <i>React.js</i> ,
-                                                and <i>Next.js</i> . I also have
-                                                significant experience working
-                                                with <i>MySQL</i> databases, enabling
-                                                me to develop efficient and
-                                                reliable web applications. I
-                                                have over <b>1.5 years</b> of
-                                                experience in the field of
-                                                development, and I am seeking
-                                                new opportunities to grow as a
-                                                Fullstack Developer. I believe
-                                                that my medical background,
-                                                combined with my programming
-                                                skills, will allow me to make a
-                                                valuable contribution to the
-                                                projects I work on. I am an
-                                                energetic and self-motivated
-                                                professional who is committed to
-                                                continuous learning and
-                                                development.
+                                                Developer, specializing in{" "}
+                                                <i>JavaScript</i>, and I have
+                                                mastered tools such as{" "}
+                                                <i>Node.js</i>, <i>React.js</i>{" "}
+                                                , and <i>Next.js</i> . I also
+                                                have significant experience
+                                                working with <i>MySQL</i>{" "}
+                                                databases, enabling me to
+                                                develop efficient and reliable
+                                                web applications. I have over{" "}
+                                                <b>1.5 years</b> of experience
+                                                in the field of development, and
+                                                I am seeking new opportunities
+                                                to grow as a Fullstack
+                                                Developer. I believe that my
+                                                medical background, combined
+                                                with my programming skills, will
+                                                allow me to make a valuable
+                                                contribution to the projects I
+                                                work on. I am an energetic and
+                                                self-motivated professional who
+                                                is committed to continuous
+                                                learning and development.
                                             </p>
                                             <p className="mb-2 text-sm bg-gray-50 rounded-md p-2">
                                                 I work well in a team, and I
@@ -242,8 +247,13 @@ export default function Main_component() {
                                                 me to be a flexible and
                                                 efficient developer.
                                             </p>
-                                            <h2 className="font-semibold">In conclusion</h2>
-                                            <p className="mb-2 text-sm bg-yellow-200 rounded-l-md p-2">I am the one you are looking for!</p>
+                                            <h2 className="font-semibold">
+                                                In conclusion
+                                            </h2>
+                                            <p className="mb-2 text-sm bg-yellow-200 rounded-l-md p-2">
+                                                I am the one you are looking
+                                                for!
+                                            </p>
                                         </dd>
                                     </dl>
                                 </li>
@@ -252,20 +262,20 @@ export default function Main_component() {
                     </div>
                 </div>
             </div>
-            <div className="px-8">
+            <div className="px-8 w-full">
                 <h2
                     id="my_stack"
                     className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-8"
                 >
                     my_stack
                 </h2>
-                <div className="flex flex-wrap  items-center justify-center gap-x-16 gap-y-5  p-5 shadow-sm mb-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 items-center justify-around shadow-sm py-5">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="110"
                         height="110"
                         viewBox="0 0 24 24"
-                        class="fill-orange-600"
+                        class="fill-orange-600 ml-2 justify-self-center"
                     >
                         <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718l10.059.003l.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426l-2.91.804l-2.955-.81l-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443l.744-8.157H8.531z" />
                     </svg>
@@ -275,7 +285,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 512 512"
-                        class="fill-sky-600 "
+                        class="fill-sky-600  justify-self-center"
                     >
                         <path d="m64 32l35 403.22L255.77 480L413 435.15L448 32Zm290.68 334.9L256.07 395l-98.46-28.24l-6.75-77.76h48.26l3.43 39.56l53.59 15.16l.13.28l53.47-14.85l5.64-64.15H203l-4-50h120.65l4.35-51H140l-4-49h240.58Z" />
                     </svg>
@@ -285,7 +295,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 24 24"
-                        class="fill-yellow-500"
+                        class="fill-yellow-500 justify-self-center"
                     >
                         <path d="M11.181 2.213a1.677 1.677 0 0 1 1.637 0l7.479 4.225a1.54 1.54 0 0 1 .778 1.325v8.475a1.556 1.556 0 0 1-.836 1.354l-7.452 4.204a1.63 1.63 0 0 1-1.655-.046l-2.236-1.292a1.316 1.316 0 0 1-.432-.311c.095-.128.265-.144.403-.2a5.22 5.22 0 0 0 .883-.412a.206.206 0 0 1 .23.014c.636.365 1.267.741 1.907 1.103c.136.079.274-.026.39-.09q3.658-2.068 7.317-4.13a.242.242 0 0 0 .133-.238q.003-4.193.001-8.387a.262.262 0 0 0-.156-.261q-3.714-2.092-7.426-4.186a.258.258 0 0 0-.292 0Q8.141 5.452 4.43 7.547a.259.259 0 0 0-.157.26v8.387a.237.237 0 0 0 .135.235q.99.562 1.983 1.12a1.532 1.532 0 0 0 1.24.166a.94.94 0 0 0 .609-.883c.003-2.78-.002-5.56.002-8.338a.21.21 0 0 1 .228-.214c.318-.002.635-.004.953.001a.22.22 0 0 1 .207.254c-.001 2.797.003 5.594-.002 8.39a2.127 2.127 0 0 1-.995 1.922a3.064 3.064 0 0 1-2.738-.075c-.727-.363-1.42-.79-2.133-1.18a1.553 1.553 0 0 1-.835-1.354V7.763a1.542 1.542 0 0 1 .804-1.342q3.726-2.103 7.451-4.208Z" />
                         <path d="M13.348 8.083a5.88 5.88 0 0 1 3.218.493a2.434 2.434 0 0 1 1.187 2.106a.228.228 0 0 1-.247.168c-.315 0-.629.004-.943-.002a.243.243 0 0 1-.228-.236a1.436 1.436 0 0 0-.687-.992a4.071 4.071 0 0 0-1.884-.27a2.558 2.558 0 0 0-1.349.336a.855.855 0 0 0-.284.955c.101.24.378.317.605.388c1.306.342 2.69.308 3.97.757a1.87 1.87 0 0 1 1.23 1.095a2.338 2.338 0 0 1-.396 2.23a3.126 3.126 0 0 1-1.678.905a8.063 8.063 0 0 1-2.533.108a3.992 3.992 0 0 1-2.228-.839a2.338 2.338 0 0 1-.753-1.844a.211.211 0 0 1 .231-.186c.317-.003.633-.004.95 0a.222.222 0 0 1 .226.22a1.439 1.439 0 0 0 .536 1.01a4.06 4.06 0 0 0 2.187.398a2.97 2.97 0 0 0 1.794-.439a.99.99 0 0 0 .27-.946c-.078-.28-.37-.41-.621-.495c-1.29-.408-2.688-.26-3.965-.72a1.93 1.93 0 0 1-1.218-1.063a2.175 2.175 0 0 1 .434-2.262a3.506 3.506 0 0 1 2.176-.875Z" />
@@ -296,7 +306,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 32 32"
-                        class="fill-sky-600 "
+                        class="fill-sky-600 justify-self-center "
                     >
                         <rect width="128" height="128" x="2" y="2" rx="1.312" />
                         <path
@@ -311,13 +321,13 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 32 32"
-                        class="fill-sky-600 "
+                        class="fill-sky-600 justify-self-center"
                     >
                         <path d="M16 13.146c-1.573 0-2.854 1.281-2.854 2.854s1.281 2.854 2.854 2.854c1.573 0 2.854-1.281 2.854-2.854S17.573 13.146 16 13.146zm-7.99 8.526l-.63-.156C2.692 20.328 0 18.318 0 15.995s2.693-4.333 7.38-5.521l.63-.156l.177.625a31.42 31.42 0 0 0 1.818 4.771l.135.281l-.135.286a31.047 31.047 0 0 0-1.818 4.771zm-.921-9.74c-3.563 1-5.75 2.536-5.75 4.063s2.188 3.057 5.75 4.063a33.28 33.28 0 0 1 1.578-4.063a32.958 32.958 0 0 1-1.578-4.063zm16.901 9.74l-.177-.625a31.163 31.163 0 0 0-1.818-4.766l-.135-.286l.135-.286a31.047 31.047 0 0 0 1.818-4.771l.177-.62l.63.156c4.688 1.188 7.38 3.198 7.38 5.521s-2.693 4.333-7.38 5.521zm-.657-5.677a32.524 32.524 0 0 1 1.578 4.063c3.568-1.005 5.75-2.536 5.75-4.063s-2.188-3.057-5.75-4.063a33.663 33.663 0 0 1-1.578 4.063zM7.078 11.927l-.177-.625C5.583 6.656 5.984 3.323 8 2.161c1.979-1.141 5.151.208 8.479 3.625l.453.464l-.453.464a31.458 31.458 0 0 0-3.229 3.958l-.182.255l-.313.026a31.612 31.612 0 0 0-5.047.813zm2.531-8.838c-.359 0-.677.073-.943.229c-1.323.766-1.557 3.422-.646 7.005a33.343 33.343 0 0 1 4.313-.672a32.828 32.828 0 0 1 2.734-3.391c-2.078-2.026-4.047-3.172-5.458-3.172zm12.787 27.145c-.005 0-.005 0 0 0c-1.901 0-4.344-1.427-6.875-4.031l-.453-.464l.453-.464a31.458 31.458 0 0 0 3.229-3.958l.177-.255l.313-.031a30.668 30.668 0 0 0 5.052-.813l.63-.156l.177.625c1.318 4.646.917 7.974-1.099 9.135a3.095 3.095 0 0 1-1.604.411zm-5.464-4.505c2.078 2.026 4.047 3.172 5.458 3.172h.005c.354 0 .672-.078.938-.229c1.323-.766 1.563-3.422.646-7.005a32.644 32.644 0 0 1-4.313.667a32.886 32.886 0 0 1-2.734 3.396zm7.99-13.802l-.63-.161a31.993 31.993 0 0 0-5.052-.813l-.313-.026l-.177-.255a31.458 31.458 0 0 0-3.229-3.958l-.453-.464l.453-.464c3.328-3.417 6.5-4.766 8.479-3.625c2.016 1.161 2.417 4.495 1.099 9.141zm-5.255-2.276a33.22 33.22 0 0 1 4.313.672c.917-3.583.677-6.24-.646-7.005c-1.318-.76-3.797.406-6.401 2.943a34.067 34.067 0 0 1 2.734 3.391zM9.609 30.234c-.563.01-1.12-.13-1.609-.411c-2.016-1.161-2.417-4.49-1.099-9.135l.177-.625l.63.156c1.542.391 3.24.661 5.047.813l.313.031l.177.255a31.458 31.458 0 0 0 3.229 3.958l.453.464l-.453.464c-2.526 2.604-4.969 4.031-6.865 4.031zm-1.588-8.567c-.917 3.583-.677 6.24.646 7.005c1.318.75 3.792-.406 6.401-2.943a32.886 32.886 0 0 1-2.734-3.396a32.517 32.517 0 0 1-4.313-.667zm7.979.838c-1.099 0-2.224-.047-3.354-.141l-.313-.026l-.182-.26a39.947 39.947 0 0 1-1.797-2.828a39.917 39.917 0 0 1-1.557-2.969l-.135-.286l.135-.286a40.498 40.498 0 0 1 3.354-5.797l.182-.26l.313-.026a39.962 39.962 0 0 1 6.708 0l.313.026l.182.26a40.077 40.077 0 0 1 3.354 5.797l.135.286l-.135.286a39.62 39.62 0 0 1-3.354 5.797l-.182.26l-.313.026a40.483 40.483 0 0 1-3.354.141zm-2.927-1.448c1.969.151 3.885.151 5.859 0a39.03 39.03 0 0 0 2.927-5.063a37.53 37.53 0 0 0-2.932-5.063a37.881 37.881 0 0 0-5.854 0a37.302 37.302 0 0 0-2.932 5.063a38.624 38.624 0 0 0 2.932 5.063z" />
                     </svg>
                     <span className="hidden">react</span>
                     <svg
-                        class="fill-black 0"
+                        class="fill-black justify-self-center"
                         width="128"
                         height="128"
                         viewBox="0 0 128 128"
@@ -331,7 +341,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 24 24"
-                        className="fill-cyan-500 "
+                        className="fill-cyan-500 justify-self-center"
                     >
                         <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8c1.2-1.6 2.6-2.2 4.2-1.8c.913.228 1.565.89 2.288 1.624c1.177 1.194 2.538 2.576 5.512 2.576c3.2 0 5.2-1.6 6-4.8c-1.2 1.6-2.6 2.2-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
                     </svg>
@@ -341,7 +351,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 128 128"
-                        class="fill-sky-400 "
+                        class="fill-sky-400 justify-self-center"
                     >
                         <path d="m125.477 122.783l-2.616-2.537c-2.479-3.292-5.668-6.184-9.015-8.585c-2.669-1.916-8.661-4.504-9.775-7.609l-.205-.195c1.893-.214 4.103-.898 5.85-1.367c2.934-.786 5.356-.583 8.386-1.365c1.366-.39 2.899-.781 3.899-1.171v-.78c-1-1.571-2.427-3.651-4.097-5.073c-4.369-3.72-9.041-7.437-13.951-10.537c-2.723-1.718-6.041-2.835-8.926-4.292c-.971-.491-2.652-.746-3.294-1.562c-1.517-1.932-2.328-4.382-3.498-6.633c-2.449-4.717-4.849-9.868-7.019-14.831c-1.48-3.384-2.443-6.72-4.289-9.756c-8.86-14.567-18.395-23.358-33.167-32c-3.145-1.838-6.929-2.563-10.929-3.513c-2.144-.129-4.291-.26-6.437-.391c-1.311-.546-2.674-2.149-3.902-2.927c-4.896-3.092-17.449-9.817-21.074-.975c-2.289 5.581 3.42 11.025 5.462 13.854c1.435 1.982 3.27 4.207 4.293 6.438c.675 1.467.79 2.938 1.367 4.489c1.418 3.822 2.651 7.98 4.487 11.511c.927 1.788 1.949 3.67 3.122 5.268c.718.981 1.95 1.413 2.145 2.927c-1.204 1.686-1.273 4.304-1.95 6.44c-3.05 9.615-1.898 21.567 2.537 28.683c1.36 2.186 4.566 6.871 8.975 5.073c3.856-1.57 3.226-6.438 4.329-10.732c.249-.972-.185-1.688.815-2.341v.195a128.6 128.6 0 0 0 3.282 7.024c2.6 4.187 6.889 8.562 10.798 11.514c2.027 1.531 3.92 4.177 5.92 5.073v-.101h.221c-.507-1-1.302-1.167-1.95-1.804c-1.527-1.496-3.226-3.382-4.487-5.097c-3.556-4.827-6.698-10.122-9.561-15.622c-1.368-2.626-2.557-5.529-3.709-8.201c-.443-1.03-.438-2.592-1.364-3.125c-1.263 1.958-3.122 3.54-4.099 5.853c-1.561 3.696-1.762 8.204-2.341 12.877c-.343.122-.19.038-.391.194c-2.718-.655-3.672-3.452-4.683-5.853c-2.555-6.07-3.029-15.843-.781-22.829c.582-1.809 3.211-7.501 2.146-9.172c-.508-1.665-2.184-2.63-3.121-3.903c-1.161-1.574-2.319-3.646-3.123-5.464c-2.091-4.731-3.066-10.044-5.268-14.828c-1.053-2.287-2.832-4.602-4.293-6.634c-1.617-2.253-3.429-3.912-4.684-6.635c-.445-.968-1.051-2.518-.39-3.513c.21-.671.507-.951 1.171-1.17c1.133-.873 4.283.29 5.463.779c3.129 1.3 5.741 2.5 8.392 4.256c1.271.844 2.559 1.89 4.097 2.89h1.756c2.747 0 5.824.232 8.391 1.012c4.535 1.379 8.6 3.542 12.292 5.873c11.246 7.102 20.441 17.22 26.732 29.278c1.012 1.942 1.45 3.799 2.341 5.858c1.798 4.153 4.064 8.428 5.853 12.489c1.786 4.053 3.526 8.142 6.05 11.514c1.327 1.772 6.451 2.724 8.78 3.709c1.633.689 4.308 1.409 5.854 2.34c2.953 1.782 5.814 3.904 8.586 5.855c1.384.974 5.64 3.114 5.853 4.878c-6.863-.188-12.104.452-16.585 2.341c-1.273.537-3.305.552-3.513 2.147c.7.733.809 1.829 1.365 2.731c1.069 1.73 2.876 4.052 4.488 5.268c1.762 1.33 3.576 2.751 5.464 3.902c3.359 2.047 7.107 3.217 10.341 5.268c1.906 1.21 3.958 2.733 5.815 4.097c.92.675.891 1.724 2.891 2.147v-.194c-.999-.795-.946-1.893-1.522-2.728zM29.514 23.465c-1.431-.027-2.514.157-3.514.389V24h.198c.683 1 1.888 2.33 2.731 3.538l1.952 4.108l.193-.187c1.209-.853 1.763-2.211 1.756-4.291c-.483-.509-.556-1.146-.974-1.754c-.558-.809-1.639-1.268-2.342-1.949z" />
                     </svg>
@@ -351,7 +361,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 256 310"
-                        class="fill-black 0"
+                        class="fill-black justify-self-center"
                     >
                         <path d="M254.313 235.519L148 9.749A17.063 17.063 0 0 0 133.473.037a16.87 16.87 0 0 0-15.533 8.052L2.633 194.848a17.465 17.465 0 0 0 .193 18.747L59.2 300.896a18.13 18.13 0 0 0 20.363 7.489l163.599-48.392a17.929 17.929 0 0 0 11.26-9.722a17.542 17.542 0 0 0-.101-14.76l-.008.008Zm-23.802 9.683l-138.823 41.05c-4.235 1.26-8.3-2.411-7.419-6.685l49.598-237.484c.927-4.443 7.063-5.147 9.003-1.035l91.814 194.973a6.63 6.63 0 0 1-4.18 9.18h.007Z" />
                     </svg>
@@ -362,7 +372,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 128 128"
-                        class="fill-emerald-600"
+                        class="fill-emerald-600 justify-self-center"
                     >
                         <path d="M114.325 80.749c-.29 0-.578-.076-.832-.224l-2.65-1.568c-.396-.221-.203-.3-.072-.345c.528-.184.635-.227 1.198-.545c.059-.033.136-.021.197.015l2.035 1.209a.261.261 0 0 0 .246 0l7.937-4.581a.248.248 0 0 0 .122-.215v-9.16a.256.256 0 0 0-.123-.219l-7.934-4.577a.254.254 0 0 0-.245 0l-7.933 4.578a.259.259 0 0 0-.125.218v9.16c0 .088.049.171.125.212l2.174 1.257c1.18.589 1.903-.105 1.903-.803v-9.045c0-.127.103-.228.23-.228h1.007c.125 0 .229.101.229.228v9.045c0 1.574-.857 2.477-2.35 2.477c-.459 0-.82 0-1.828-.496l-2.081-1.198a1.676 1.676 0 0 1-.832-1.448v-9.16c0-.595.317-1.15.832-1.446l7.937-4.587a1.743 1.743 0 0 1 1.667 0l7.937 4.587c.514.297.833.852.833 1.446v9.16a1.68 1.68 0 0 1-.833 1.448l-7.937 4.582a1.651 1.651 0 0 1-.834.223m2.453-6.311c-3.475 0-4.202-1.595-4.202-2.932a.23.23 0 0 1 .23-.229h1.026a.23.23 0 0 1 .228.194c.154 1.045.617 1.572 2.718 1.572c1.671 0 2.383-.378 2.383-1.266c0-.512-.202-.891-2.8-1.146c-2.172-.215-3.515-.694-3.515-2.433c0-1.601 1.35-2.557 3.612-2.557c2.543 0 3.801.883 3.96 2.777a.235.235 0 0 1-.06.176a.236.236 0 0 1-.168.073h-1.031a.228.228 0 0 1-.223-.179c-.248-1.1-.848-1.451-2.479-1.451c-1.825 0-2.037.637-2.037 1.112c0 .577.25.745 2.715 1.071c2.439.323 3.598.779 3.598 2.494c.001 1.733-1.441 2.724-3.955 2.724M97.982 68.43c.313-.183.506-.517.506-.88v-2.354c0-.362-.192-.696-.506-.879l-8.364-4.856a1.017 1.017 0 0 0-1.019-.002l-8.416 4.859a1.018 1.018 0 0 0-.508.88v9.716c0 .365.196.703.514.884l8.363 4.765c.308.177.686.178.997.006l5.058-2.812a.508.508 0 0 0 .006-.885l-8.468-4.86a.507.507 0 0 1-.256-.44v-3.046c0-.182.097-.349.254-.439l2.637-1.52a.505.505 0 0 1 .507 0l2.637 1.52a.507.507 0 0 1 .255.439v2.396a.507.507 0 0 0 .764.44l5.039-2.932m-8.998-.456a.2.2 0 0 1 .195 0l1.615.933c.06.035.097.1.097.169v1.865c0 .07-.037.134-.097.169l-1.615.932a.194.194 0 0 1-.195 0l-1.614-.932a.194.194 0 0 1-.098-.169v-1.865c0-.069.037-.134.098-.169l1.614-.933m-21.901 3.88c0 .09-.048.174-.127.22l-2.89 1.666a.251.251 0 0 1-.254 0l-2.89-1.666a.255.255 0 0 1-.127-.22v-3.338c0-.09.049-.175.127-.221l2.89-1.668a.248.248 0 0 1 .255 0l2.891 1.668a.258.258 0 0 1 .126.221v3.338zm.781-24.716a.511.511 0 0 0-.756.444v12.915a.359.359 0 0 1-.177.308a.359.359 0 0 1-.356 0l-2.108-1.215a1.017 1.017 0 0 0-1.015 0l-8.418 4.858a1.018 1.018 0 0 0-.509.881v9.719c0 .363.194.698.508.881l8.418 4.861c.314.182.702.182 1.017 0l8.42-4.861a1.02 1.02 0 0 0 .508-.881V50.821c0-.368-.2-.708-.521-.888l-5.011-2.795M38.238 59.407a1.014 1.014 0 0 1 1.016 0l8.418 4.857c.314.182.508.518.508.881v9.722c0 .363-.194.699-.508.881l-8.417 4.861a1.02 1.02 0 0 1-1.017 0l-8.415-4.861a1.02 1.02 0 0 1-.508-.881v-9.723c0-.362.194-.698.508-.88l8.415-4.857M22.93 65.064c0-.366-.192-.702-.508-.883l-8.415-4.843a.99.99 0 0 0-.464-.133h-.087a.993.993 0 0 0-.464.133l-8.416 4.843a1.02 1.02 0 0 0-.509.883l.018 13.04c0 .182.095.351.254.439a.487.487 0 0 0 .505 0l5-2.864c.316-.188.509-.519.509-.882v-6.092c0-.364.192-.699.507-.881l2.13-1.226a.994.994 0 0 1 .508-.137c.174 0 .352.044.507.137l2.128 1.226c.315.182.509.517.509.881v6.092c0 .363.195.696.509.882l5 2.864a.508.508 0 0 0 .76-.439l.019-13.04" />
                     </svg>
@@ -372,7 +382,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 128 128"
-                        class="fill-emerald-600 "
+                        class="fill-emerald-600 justify-self-center"
                     >
                         <path d="M40.53 77.82V50.74H42V55a5.57 5.57 0 0 0 .48-.6a7.28 7.28 0 0 1 6.64-4.12c3.35-.1 6.07 1.14 7.67 4.12a13.24 13.24 0 0 1 .32 12.14c-1.49 3.34-5.17 5-9.11 4.39a7.37 7.37 0 0 1-5.88-3.88v10.77zM42 60.32c.13 1.32.18 2.26.33 3.18c.58 3.62 2.72 5.77 6.08 6.16A6.91 6.91 0 0 0 56 65.27a11.77 11.77 0 0 0-.26-9.68a6.77 6.77 0 0 0-7.13-3.94a6.59 6.59 0 0 0-5.89 4.87a33.4 33.4 0 0 0-.72 3.8zM88.41 64a7.92 7.92 0 0 1-7.74 7c-6.16.31-9.05-3.78-9.51-8.5a13.62 13.62 0 0 1 1.2-7.5a8.37 8.37 0 0 1 8.71-4.67a8 8 0 0 1 7.1 6.09a41.09 41.09 0 0 1 .69 4.5H72.67c-.3 4.28 2 7.72 5.26 8.55c4.06 1 7.53-.76 8.79-4.62c.28-.99.79-1.13 1.69-.85zm-15.74-4.45h14.47c-.09-4.56-2.93-7.86-6.78-7.91c-4.36-.07-7.5 3.11-7.69 7.91zm18.72 4.55h1.42a5.69 5.69 0 0 0 3.34 4.9a8.73 8.73 0 0 0 7.58-.2a3.41 3.41 0 0 0 2-3.35a3.09 3.09 0 0 0-2.08-3.09c-1.56-.58-3.22-.9-4.81-1.41A35.25 35.25 0 0 1 94 59.18c-2.56-1.25-2.72-6.12.18-7.66a10.21 10.21 0 0 1 9.76-.15a5.14 5.14 0 0 1 2.6 5.24h-1.22c0-.06-.11-.11-.11-.17c-.15-3.89-3.41-5.09-6.91-4.75a9.17 9.17 0 0 0-3 .91a3 3 0 0 0-1.74 3a3 3 0 0 0 2 2.82c1.54.56 3.15.92 4.73 1.36c1.27.35 2.59.58 3.82 1a4.51 4.51 0 0 1 3.1 4.07a4.81 4.81 0 0 1-2.59 5c-3.34 1.89-8.84 1.39-11.29-1a6.67 6.67 0 0 1-1.94-4.75zm33.82-7.49h-1.33c0-.18-.07-.34-.09-.49a4.35 4.35 0 0 0-3.54-4.18a8.73 8.73 0 0 0-5.61.27a3.41 3.41 0 0 0-2.47 3.25a3.14 3.14 0 0 0 2.4 3.16c2 .62 4.05 1 6.08 1.56a17 17 0 0 1 1.94.59a5 5 0 0 1 .27 9.31a11.13 11.13 0 0 1-9 .09a6.24 6.24 0 0 1-3.76-6.06h1.3a7.29 7.29 0 0 0 11.1 4.64a3.57 3.57 0 0 0 1.92-3.34a3.09 3.09 0 0 0-2.11-3.07c-1.56-.58-3.22-.89-4.81-1.4a35.43 35.43 0 0 1-4.87-1.75c-2.5-1.23-2.7-6.06.15-7.6a10.07 10.07 0 0 1 9.92-.11a5.23 5.23 0 0 1 2.51 5.13zM38.1 70.51a2.29 2.29 0 0 1-2.84-1.08c-1.63-2.44-3.43-4.77-5.16-7.15l-.75-1c-2.06 2.76-4.12 5.41-6 8.16a2.2 2.2 0 0 1-2.7 1.06l7.73-10.37l-7.19-9.37a2.39 2.39 0 0 1 2.85 1c1.67 2.44 3.52 4.77 5.36 7.24c1.85-2.45 3.68-4.79 5.39-7.21a2.15 2.15 0 0 1 2.68-1l-2.79 3.7c-1.25 1.65-2.48 3.31-3.78 4.92a1 1 0 0 0 0 1.49c2.39 3.17 4.76 6.35 7.2 9.61zm32.82-19.85v1.4a7.25 7.25 0 0 0-7.72 7.49v11h-1.43V50.74h1.4v4.06c1.73-2.96 4.4-4.06 7.75-4.14zM2.13 60c.21-1 .34-2.09.63-3.11c1.73-6.15 8.78-8.71 13.63-4.9c2.84 2.23 3.55 5.39 3.41 8.95h-16c-.26 6.36 4.33 10.2 10.2 8.24a6.09 6.09 0 0 0 3.87-4.31c.31-1 .81-1.17 1.76-.88a8.12 8.12 0 0 1-3.88 5.93a9.4 9.4 0 0 1-10.95-1.4a9.85 9.85 0 0 1-2.46-5.78c0-.34-.13-.68-.2-1q-.01-.89-.01-1.74zm1.69-.43h14.47c-.09-4.61-3-7.88-6.88-7.91c-4.32-.06-7.41 3.14-7.6 7.89z" />
                     </svg>
@@ -383,7 +393,7 @@ export default function Main_component() {
                         width="128"
                         height="128"
                         viewBox="0 0 24 24"
-                        class="fill-black "
+                        class="fill-black justify-self-center"
                     >
                         <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
                     </svg>
@@ -397,20 +407,20 @@ export default function Main_component() {
                 >
                     text_me
                 </h2>
-                <div className="text-gray-900 flex rounded shadow-md  w-2/3 self-center">
-                    <div className="w-2/3">
-                        <p className="text-xl text-center mb-5 bg-gray-50 p-1 shadow-sm">
+                <div className="text-gray-900 flex rounded shadow-md  w-full self-center">
+                    <div className="w-full sm:w-2/3">
+                        <p className="text-sm sm:text-base md:text-xl text-center mb-5 bg-gray-50 p-1 shadow-sm">
                             I'm always open to any suggestions
                         </p>
-                        <div className="flex justify-around mb-5 ">
+                        <div className="flex justify-around items-center">
                             <a
-                                className="font-semibold"
+                                className="font-semibold hover:animate-spin"
                                 href="mailto:miribyan@marat.am"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="64"
-                                    height="64"
+                                    width="48"
+                                    height="48"
                                     viewBox="0 0 24 24"
                                 >
                                     <path d="M12 .02c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.99 6.98l-6.99 5.666-6.991-5.666h13.981zm.01 10h-14v-8.505l7 5.673 7-5.672v8.504z" />
@@ -418,14 +428,14 @@ export default function Main_component() {
                             </a>
 
                             <a
-                                className="font-semibold"
+                                className="font-semibold hover:animate-spin"
                                 href="https://www.linkedin.com/in/marat-miribyan-bb0992264/"
                                 target="_blank"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="64"
-                                    height="64"
+                                    width="48"
+                                    height="48"
                                     viewBox="0 0 24 24"
                                 >
                                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -433,14 +443,14 @@ export default function Main_component() {
                             </a>
 
                             <a
-                                className="font-semibold"
+                                className="font-semibold hover:animate-spin"
                                 href="https://github.com/Miribyan"
                                 target="_blank"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    width="64"
-                                    height="64"
+                                    width="48"
+                                    height="48"
                                     viewBox="0 0 24 24"
                                     class="fill-black "
                                 >
@@ -449,7 +459,7 @@ export default function Main_component() {
                             </a>
                         </div>
                     </div>
-                    <div className="flex bg-yellow-300 text-white text-3xl w-1/3 py-10 justify-center items-center">
+                    <div className="flex bg-yellow-300 text-white text-xl w-1/3 py-10 justify-center items-center">
                         <p className="text-center ">Lets talk</p>
                     </div>
                 </div>
