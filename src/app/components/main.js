@@ -227,7 +227,7 @@ export default function Main_component() {
                                                 databases, enabling me to
                                                 develop efficient and reliable
                                                 web applications. I have over{" "}
-                                                <b>1.5 years</b> of experience
+                                                <b>3.5 years</b> of experience
                                                 in the field of development, and
                                                 I am seeking new opportunities
                                                 to grow as a Fullstack
